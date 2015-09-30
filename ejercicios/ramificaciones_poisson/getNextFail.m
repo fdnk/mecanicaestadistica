@@ -6,6 +6,8 @@ function tx = getNextFail(to, z, param)
   persistent Mneg;
   persistent Tmax;
   
+  Delta_T=10;
+  
   if nargin == 0
     % Si me invocan sin parámetros, devuelvo todas las fallas
     tx={Mneg, Mpos};
@@ -24,13 +26,13 @@ function tx = getNextFail(to, z, param)
     %disp('Creando realización nueva de fallas');
     Mpos={};
     Mneg={};
-    Tmax=1;
+    Tmax=Delta_T;
   endif
   
   if (to>=Tmax)
     % Agrego otros cachos
     N=ceil(to/Tmax + eps)-1; % Necesito esta cantidad de frames
-    newTmax = Tmax + N*1;
+    newTmax = Tmax + N*Delta_T;
     %fprintf('Agrego un frame: ti=%.3g  tf=%.3g\n', Tmax, newTmax);
     
     for k=1:numel(Mpos)

@@ -5,7 +5,7 @@ function [stats, h] = realizar_experimento(p, file, seed)
   
   assert(~getNextFail(0,0,'clear')); % Limpio la matriz de fallas
   
-  TASK_MAX = 1000;
+  TASK_MAX = 10000;
   
   HACER_PLOTS=true;
   GUARDAR_PLOTS=false;
